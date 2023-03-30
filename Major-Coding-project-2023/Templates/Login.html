@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Building Websites with Python and Bottle</title>
+<!--importing css-->
+  <link href="http://localhost:5000/static/login.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  
+<!--Making the buttons at the top, redirecting to Create and About-->
+<div class="topnav">
+  <a class="active" title="click here to create a account" href="/create">Create</a>
+  <a href="/about">About</a>
+</div>
+  
+<!--Allows users to input a password or username, if the username/password is incorrect displays an error message-->
+<div class="login-container">
+  <form method="POST" action="/login">
+    <h1>Welcome to Epiclicious</h1>
+    <h3>Please log in below</h3>
+    <input id="username" type="text" placeholder="Enter Username..." name="username">
+    <input id="psw" type="password" placeholder="Enter Password..." name="psw">
+    <div class="error">
+    {{ error }}
+    </div>
+    <input class="loginBtn" type="submit">
+  </form>
+</div>
+  
+</body>
+</html>
+  
