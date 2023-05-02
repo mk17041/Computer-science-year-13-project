@@ -1,0 +1,8 @@
+.main-content-container{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgb(76, 75, 75);
+    z-index: -1;
+}
+
