@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
@@ -11,10 +12,10 @@
   <body>
     <div class="container-fluid">
 
-<!--Row one -->
+    <!-- Row one -->
       <div class="row">
 
-        <!--HTML code for the navbar-->
+    <!-- HTML code for the navbar -->
         <div class="col">
           <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
@@ -55,30 +56,107 @@
         </div>
       </div>
 
-  <!--Row 2-->
+    <!-- Row two -->
       <div class="row">
-        <div class="col">
-          <div class="card" style="width: 40rem;">
-            <img src="https://www.cnet.com/a/img/resize/69256d2623afcbaa911f08edc45fb2d3f6a8e172/hub/2023/02/03/afedd3ee-671d-4189-bf39-4f312248fb27/gettyimages-1042132904.jpg?auto=webp&fit=crop&height=675&width=1200" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="col-7">
+          <div class="carousel-container">
+            <div id="carouselExampleIndicators" class="carousel carousel-dark slide">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+
+    <!-- Beginninng of carousels -->
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="cards-wrapper">
+        
+            
+    <!-- Image in card -->
+                    <div class="card">
+                      <div class="image-wrapper">
+                        <img src="https://a.cdn-hotels.com/gdcs/production0/d1513/35c1c89e-408c-4449-9abe-f109068f40c0.jpg?impolicy=fcrop&w=800&h=533&q=medium" alt="...">
+                      </div>
+
+    <!-- Bottom part of Card -->
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+    <!-- Beginninng of carousel 2 -->
+                <div class="carousel-item">
+                  <div class="cards-wrapper">
+      
+    
+    <!-- Image in card -->           
+                    <div class="card">
+                      <div class="image-wrapper">
+                        <img src="https://neatplaces.co.nz/cdn-cgi/image/width=665,height=444,fit=cover,format=auto//media/uploads/guides/guide/5_auckland_streets_to_eat_around_the_world/Peachs_Hot_Chicken_Auckland.jpg" alt="...">
+                      </div>
+    
+    <!-- Bottom part of Card -->
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+    <!-- Beginninng of carousel 3 -->
+                <div class="carousel-item">
+                  <div class="cards-wrapper">
+                    
+    <!-- Image in card -->              
+                    <div class="card">
+                      <div class="image-wrapper">
+                        <img src="https://imgix.theurbanlist.com/content/article/Origine.jpg?auto=format,compress&w=520&h=390&fit=crop" alt="...">
+                      </div>
+
+    <!-- Bottom part of Card -->                
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
             </div>
+                      
           </div>
-        </div>
-
+      
+      <!-- Column two -->
         <div class="col">
-          <div class="card" style="width: 40rem;">
-          
-          
-          </div>
-
-
+          <h1>hi</h1>
         </div>
 
       </div>
 
+
+        
+  
     </div>
 
     
