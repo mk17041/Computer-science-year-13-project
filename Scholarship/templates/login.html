@@ -154,23 +154,27 @@
         
     <!-- Column two -->
             <div class="col">
-              <div class="card text-center">
+              <div class="card">
+                <div class="carousel-container">
                 
-                <div class="card-body">
-                  <h5 class="card-title">Login</h5>
-                  <div class="form-floating mb-3">
+                  <div class="card-body">
+                    <h1 class="card-title">Login</h1>
 
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    
-                    <label for="floatingInput">Email address</label>
+                    <label for="email"><b>Email</b></label>
+                    <div class="form-floating mb-4 email-form">
+                      
+                      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                      <label for="floatingInput">Email address</label>
+                    </div>
+
+                    <div class="form-floating password-form">
+                      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                      <label for="floatingPassword">Password</label>   
+                    </div>
+
+                    <a href="#" class="btn btn-primary btn-login">Login</a>
                   </div>
-                  <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
-                  </div>
-                  <a href="#" class="btn btn-primary">Login</a>
                 </div>
-                
               </div>
 
             </div>

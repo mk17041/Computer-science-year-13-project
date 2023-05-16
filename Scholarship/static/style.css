@@ -3,7 +3,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    background: rgb(76, 75, 75);
+    background: rgb(76, 75, 75);    
     z-index: -1;
 }
 
@@ -19,9 +19,6 @@
     box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
 }
 
-.card-body{
-    height: 15rem;
-}
 
  /*, .carousel-indicators */
 .carasoul-inner{
@@ -85,3 +82,19 @@ body {
     height: 94vh;
 }
 
+.vh-60 {
+    height: 60vh;
+}
+
+.btn-login {
+    margin-top: 25%;
+    width: 30%;
+}
+
+.email-form {
+    margin-top: 5%
+}
+
+.password-form {
+    margin-top: 20%;
+}
