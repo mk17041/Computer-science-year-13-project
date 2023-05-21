@@ -1,0 +1,107 @@
+
+.main-content-container{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgb(76, 75, 75);    
+    z-index: -1;
+}
+
+/* For card carousel in bootstrap */
+
+.cards-wrapper{
+    display: flex;
+}
+
+.card{
+    border: none;
+    border-radius: 0;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+}
+
+
+ /*, .carousel-indicators */
+.carasoul-inner{
+    padding: 1em;
+}
+
+
+.carousel-control-prev, .carousel-control-next{
+    background-color: #e1e1e1;
+    border-radius: 50%;
+    height: 95%;
+}
+ 
+
+.carousel-control-next span,
+.carousel-control-prev span{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.image-wrapper{
+    float: left;
+    width:  650px;
+    height: 100%;
+    object-fit: cover;
+}
+ 
+.image-wrapper img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.carousel-container{
+    margin: auto;
+    margin-bottom: 55px;
+    width: 100%;
+    padding: 10px;
+    height: 100%;
+}
+ 
+body {
+   min-height: 100vh;
+   margin: auto;
+}
+
+.main-content{
+    position: absolute;
+    height: 100%;
+    transition: all 0.5s ease;
+    background: #f8faff;
+    min-height: 100vh;
+    z-index: -1;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vh-94 {
+    height: 94vh;
+}
+
+.vh-60 {
+    height: 60vh;
+}
+
+.btn-login {
+    margin-top: 25%;
+    width: 30%;
+    color:  #2e7d32;
+}
+
+.email-form {
+    margin-top: 5%
+}
+
+.password-form {
+    margin-top: 20%;
+}
+
+  .row {
+    display: flex;
+    align-items: normal;
+  }
