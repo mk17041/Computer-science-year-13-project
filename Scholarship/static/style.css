@@ -41,7 +41,7 @@
 
 .image-wrapper{
     float: left;
-    width:  100%;
+    width:  650px;
     height: 100%;
     object-fit: cover;
 }
@@ -61,6 +61,7 @@
  
 body {
    min-height: 100vh;
+   margin: auto;
 }
 
 .main-content{
@@ -89,6 +90,7 @@ body {
 .btn-login {
     margin-top: 25%;
     width: 30%;
+    color:  #2e7d32;
 }
 
 .email-form {
@@ -98,3 +100,9 @@ body {
 .password-form {
     margin-top: 20%;
 }
+
+  .row {
+    display: flex;
+    align-items: normal;
+    height: auto;
+  }
