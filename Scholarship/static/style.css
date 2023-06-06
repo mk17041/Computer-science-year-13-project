@@ -1,12 +1,16 @@
-
-.main-content-container{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: rgb(76, 75, 75);    
-    z-index: -1;
-}
-
+body {
+    background-image: url("https://static.vecteezy.com/system/resources/previews/003/823/542/original/spices-for-use-as-cooking-ingredients-on-a-wooden-background-with-fresh-vegetables-healthy-food-herbs-organic-vegetables-on-the-table-raw-materials-of-cooking-preparation-tom-yum-free-photo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw; /* Use viewport units for width */
+    height: 100vh;
+    margin: 0;
+    padding: 0; /* Remove padding */
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  
 /* For card carousel in bootstrap */
 
 .cards-wrapper{
@@ -16,7 +20,7 @@
  /*, .carousel-indicators */
 
 .carousel-indicators{
-    margin-bottom: 30% !important;
+    margin-bottom: 33% !important;
 }
 
 .carasoul-inner{
@@ -46,6 +50,7 @@
 }
  
 img{
+    margin-left: 0px;
     max-width: 650px;
     max-height: 500px;
 }
@@ -56,10 +61,6 @@ img{
     height: 50%;
 }
  
-body {
-   min-height: 100vh;
-}
-
 .main-content{
     position: absolute;
     height: 100%;
@@ -71,58 +72,103 @@ body {
 
 /*, .Login containers */
 
-.row {
+ .row {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.vh-94 {
+  }
+  
+  .vh-94 {
     height: 94vh;
-}
-
-.vh-60 {
+  }
+  
+  .vh-60 {
     height: 60vh;
-}
-
-.btn-login{
-    margin-top: 20%;
-    width: 30%;
+  }
+  
+  .btn-login {
+    margin-top: 1%;
+    width: 25%;
     background-color: #198754 !important;   
-}
-
-.btn-primary {
+    margin-left: 5%;
+  }
+  
+  .btn-primary {
     background-color: #198754 !important; 
-}
-
-.password-text {
+    border-color: #198754 !important;
+  }
+  
+  .btn-login:hover, .btn-primary:hover {
+    background-color: #0f4b2feb !important;
+    border-color: #0f4b2feb !important;
+  }
+  
+  .password-text {
     margin-top: 5%;
-}
-
-.email-form {
-    margin-top: 5%
-}
-
-.password-form {
+    margin-left: 5%;
+  }
+  
+  .email-text {
     margin-top: 5%;
-}
+    margin-left: 5%;
+  }
 
-.login-container {
+  .email-form {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+  }
+  
+  .password-form {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+  }
+  
+  .login-container {
     height: 29%;
-    margin-bottom: 9%;
-}
+  }
+  
+  .form-check {
+    margin-top: 5%;
+    margin-left: 5%;
+  } 
 
-.card {
-    height: 50%;
-}
+  .form-check-label {
+    margin-left: 2%;
+  }
 
-.card-body{ 
-    height: 100%;
-}
+  .card {
+    height: 600px !important;
+  }
+  
+  .card-login {
+    position: relative;
+    border-radius: 15px;
+  }
+  
+  .custom-card-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background-color: rgb(232, 232, 232);
+    padding-top: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .forgotpw-text {
+    margin-top: 20px;
+  }
 
-.card-body-2{
-    background-color: lightgrey;
-    height: 30%;
-    border: none;   
-    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
-}
+  .footer-text {
+    margin-left: 10%;
+    margin-top: 15px;
+  }
+  
+  .column-content {
+    margin-bottom: 20px; /* Adjust the desired amount of spacing */
+    padding: 20px;
+  }
