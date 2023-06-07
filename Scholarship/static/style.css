@@ -1,3 +1,5 @@
+/* Body css including bg */
+
 body {
     background-image: url("https://static.vecteezy.com/system/resources/previews/003/823/542/original/spices-for-use-as-cooking-ingredients-on-a-wooden-background-with-fresh-vegetables-healthy-food-herbs-organic-vegetables-on-the-table-raw-materials-of-cooking-preparation-tom-yum-free-photo.jpg");
     background-repeat: no-repeat;
@@ -11,16 +13,28 @@ body {
     overflow-y: hidden;
   }
   
+/* Navbar width */
+
+.navbar {
+  width: 183vh !important;
+  right: 12px;
+}
+
 /* For card carousel in bootstrap */
 
 .cards-wrapper{
     display: flex;
 }
 
+.img-border {
+  border: 20px solid white;
+  border-radius: 5px;
+}
+
  /*, .carousel-indicators */
 
 .carousel-indicators{
-    margin-bottom: 33% !important;
+    margin-bottom: 45% !important;
 }
 
 .carasoul-inner{
@@ -28,17 +42,23 @@ body {
 
 }
 
-
 .carousel-control-prev, .carousel-control-next{
     background-color: #e1e1e1;
     border-radius: 50%;
-    height: 95%;
+    height: 60%;
+}
+
+.carousel-control-prev-icon {
+  margin-right: 75% !important;
 }
  
+.carousel-control-next-icon {
+  margin-left: 75% !important;
+}
 
 .carousel-control-next span,
 .carousel-control-prev span{
-    width: 1.5rem;
+    width: 2rem;
     height: 1.5rem;
 }
 
@@ -51,8 +71,10 @@ body {
  
 img{
     margin-left: 0px;
-    max-width: 650px;
-    max-height: 500px;
+    max-width: 100%;
+    max-height: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .carousel-container{
@@ -68,6 +90,16 @@ img{
     background: #f8faff;
     min-height: 100vh;
     z-index: -1;
+}
+
+/* For card carousel text*/
+
+.card-title, .card-text {
+  margin-bottom: 20%;
+}
+
+.btn-carousel {
+  margin-bottom: 5% !important;
 }
 
 /*, .Login containers */
@@ -86,6 +118,8 @@ img{
     height: 60vh;
   }
   
+/* Buttons */
+
   .btn-login {
     margin-top: 1%;
     width: 25%;
@@ -103,6 +137,8 @@ img{
     border-color: #0f4b2feb !important;
   }
   
+/* Objects inside Log in card*/
+
   .password-text {
     margin-top: 5%;
     margin-left: 5%;
@@ -147,6 +183,8 @@ img{
     border-radius: 15px;
   }
   
+/* For grey part*/
+
   .custom-card-footer {
     position: absolute;
     bottom: 0;
