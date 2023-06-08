@@ -1,67 +1,99 @@
+/* Body css including bg */
 
-.main-content-container{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: rgb(76, 75, 75);    
-    z-index: -1;
+body {
+    background-image: url("https://static.vecteezy.com/system/resources/previews/003/823/542/original/spices-for-use-as-cooking-ingredients-on-a-wooden-background-with-fresh-vegetables-healthy-food-herbs-organic-vegetables-on-the-table-raw-materials-of-cooking-preparation-tom-yum-free-photo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw; /* Use viewport units for width */
+    height: 100vh;
+    margin: 0;
+    padding: 0; /* Remove padding */
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  
+/* Navbar width */
+
+.navbar {
+  width: 100% !important;
 }
-
+.col {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
 /* For card carousel in bootstrap */
 
 .cards-wrapper{
     display: flex;
 }
 
-.card{
-    border: none;
-    border-radius: 0;
-    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+.img-border {
+  border: 20px solid white;
+  border-radius: 5px;
 }
-
 
  /*, .carousel-indicators */
-.carasoul-inner{
-    padding: 1em;
+
+.carousel-indicators{
+    margin-bottom: 45% !important;
 }
 
+.carasoul-inner{
+    padding: 1em;
+
+}
 
 .carousel-control-prev, .carousel-control-next{
     background-color: #e1e1e1;
     border-radius: 50%;
-    height: 95%;
+    height: 60%;
+}
+
+.carousel-control-prev-icon {
+  margin-right: 75% !important;
 }
  
+.carousel-control-next-icon {
+  margin-left: 75% !important;
+}
 
 .carousel-control-next span,
 .carousel-control-prev span{
-    width: 1.5rem;
+    width: 2rem;
     height: 1.5rem;
 }
+
+/*, .images in carousel*/
 
 .image-wrapper{
     float: left;
     width:  100%;
     height: 100%;
-    object-fit: cover;
 }
  
+
+img{
+    margin-left: 0px;
+    max-width: 100%;
 .image-wrapper img{
     max-width: 50%;
     max-height: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .carousel-container{
-    margin: auto;
-    margin-bottom: 55px;
     width: 100%;
     padding: 10px;
-    height: 100%;
+    height: 50%;
 }
  
+
 body {
    min-height: 100vh;
 }
+
 
 .main-content{
     position: absolute;
@@ -72,19 +104,15 @@ body {
     z-index: -1;
 }
 
-.row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* For card carousel text*/
+
+
+.card-title, .card-text {
+  margin-bottom: 20%;
 }
 
-.vh-94 {
-    height: 94vh;
-}
-
-.vh-60 {
-    height: 60vh;
-}
+.btn-carousel {
+  margin-bottom: 5% !important;
 
 .btn-login {
     margin-top: 25%;
@@ -93,11 +121,118 @@ body {
 
 .email-form {
     margin-top: 30%
+
 }
 
-.password-form {
-    margin-top: 20%;
-}
+/*, .Login containers */
+
+
+ .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .vh-94 {
+    height: 94vh;
+  }
+  
+  .vh-60 {
+    height: 60vh;
+  }
+  
+/* Buttons */
+
+  .btn-login {
+    margin-top: 1%;
+    width: 25%;
+    background-color: #198754 !important;   
+    margin-left: 5%;
+  }
+  
+  .btn-primary {
+    background-color: #198754 !important; 
+    border-color: #198754 !important;
+  }
+  
+  .btn-login:hover, .btn-primary:hover {
+    background-color: #0f4b2feb !important;
+    border-color: #0f4b2feb !important;
+  }
+  
+/* Objects inside Log in card*/
+
+  .password-text {
+    margin-top: 5%;
+    margin-left: 5%;
+  }
+  
+  .email-text {
+    margin-top: 5%;
+    margin-left: 5%;
+  }
+
+  .email-form {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+  }
+  
+  .password-form {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+  }
+  
+  .login-container {
+    height: 29%;
+  }
+  
+  .form-check {
+    margin-top: 5%;
+    margin-left: 5%;
+  } 
+
+  .form-check-label {
+    margin-left: 2%;
+  }
+
+  .card {
+    height: 600px !important;
+  }
+  
+  .card-login {
+    position: relative;
+    border-radius: 15px;
+  }
+  
+/* For grey part*/
+
+  .custom-card-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background-color: rgb(232, 232, 232);
+    padding-top: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .forgotpw-text {
+    margin-top: 20px;
+  }
+
+  .footer-text {
+    margin-left: 10%;
+    margin-top: 15px;
+  }
+  
+  .column-content {
+    margin-bottom: 20px; /* Adjust the desired amount of spacing */
+    padding: 20px;
+  }
 
 .login-container {
     height: 40em;
