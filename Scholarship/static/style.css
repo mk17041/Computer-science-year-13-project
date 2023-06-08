@@ -16,10 +16,12 @@ body {
 /* Navbar width */
 
 .navbar {
-  width: 183vh !important;
-  right: 12px;
+  width: 100% !important;
 }
-
+.col {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
 /* For card carousel in bootstrap */
 
 .cards-wrapper{

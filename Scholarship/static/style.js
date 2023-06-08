@@ -12,7 +12,7 @@ function enableAutoScroll() {
   
       // Go to the next slide
       carousel.querySelector(`.carousel-indicators button[data-bs-slide-to="${nextIndex}"]`).click();
-    }, 3000); // Adjust the time interval (in milliseconds) as per your requirement
+    }, 5000); // Adjust the time interval (in milliseconds) as per your requirement
   }
   
   // Call the function to enable auto scrolling
