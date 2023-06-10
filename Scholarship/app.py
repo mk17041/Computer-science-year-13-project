@@ -1,6 +1,10 @@
+from pickle import TRUE
+#import MySQLdb
+from flask import Flask, render_template, request, redirect, jsonify, session, flash, logging
+app = Flask(__name__)
 import mysql.connector
 import bcrypt
-from flask import Flask, render_template, request
+app.secret_key = 'thisisoursecretkey'
     
 # Function to hash the password
 def hash_password(password):
@@ -37,19 +41,41 @@ def insert_user(username, password):
     db.close()
 
 
-app = Flask(__name__)
 
 app.debug = True
 
-@app.route('/login', methods=['GET', 'POST'])
+#database setup
+db = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        passwd="root1234",
+        database="userdata"
+    )
+
+
+@app.route("/login1", methods = ["POST","GET"])
 def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        insert_user(username, password)
-        return 'User inserted successfully'
-
-    return render_template('login.html')
-
+    #if user submits form 
+    if request.method == "POST":
+        #creating varibles from form data from html
+        username = request.form["username"]
+        password = request.form["password"]
+        #cur = open data base
+        mycursor = db.cursor(buffered=True, dictionary=True)
+        #searches in logintable where username/password is = to what user inputted
+        mycursor.execute("SELECT * FROM users WHERE username = %s AND password = %s", (username, password))
+        login = mycursor.fetchone()
+        #if true transfers to menu
+        if login: 
+                session["loggedin"] = TRUE
+                session["username"] = login["username"]
+                return redirect("/")
+        #else outputs 'wrong username or password'
+        else:
+            error = 'wrong username or password'
+            return render_template("login.html", error = error)
+    else: 
+        return render_template("login.html")
+    
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, port=8000)
