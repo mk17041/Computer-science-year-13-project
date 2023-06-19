@@ -111,6 +111,12 @@ img{
     align-items: center;
     justify-content: center;
   }
+
+  .col-4 {
+    margin: auto;
+    margin-top: 4% !important;
+    padding: 0% !important;
+  }
   
   .vh-94 {
     height: 94vh;
@@ -216,3 +222,8 @@ img{
     margin-bottom: 20px; /* Adjust the desired amount of spacing */
     padding: 20px;
   }
+
+  .title {
+    font-size: 70px;
+  }
+  

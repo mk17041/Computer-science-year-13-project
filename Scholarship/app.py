@@ -2,6 +2,7 @@ from pickle import TRUE
 from flask import Flask, render_template, request, redirect, session
 import mysql.connector
 import bcrypt
+import re
 from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
@@ -68,7 +69,7 @@ def login():
         if user and bcrypt.checkpw(password.encode("utf-8"), user["password_hash"].encode("utf-8")):
             session["loggedin"] = TRUE
             session["username"] = user["username"]
-            return redirect("/")
+            return redirect("/home")
         
         # Else outputs 'wrong username or password'
         else:
@@ -83,6 +84,25 @@ def signup():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
+        confirm_password = request.form["confirm-password"]
+
+        if password != confirm_password:
+            error = "Passwords do not match"
+            return render_template("signup.html", error=error)
+
+        # Check if the input is a valid email address
+        is_valid_email = re.match(r"[^@]+@[^@]+\.[^@]+", username)
+
+        if is_valid_email:
+            # It's a valid email address
+            # Perform further processing or validation here
+            # ...
+            pass
+        else:
+            # It's not a valid email address
+            # Handle the error condition accordingly
+            error = "Invalid email address"
+            return render_template("signup.html", error=error)
 
         # Insert the user into the database with hashed password
         mycursor = db.cursor()
@@ -95,5 +115,11 @@ def signup():
     else:
         return render_template("signup.html")
     
+    
+
+@app.route("/home")
+def home():
+    return render_template("home.html")
+
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
