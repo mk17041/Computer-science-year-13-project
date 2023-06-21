@@ -1,0 +1,229 @@
+/* Body css including bg */
+
+body {
+    background-image: url("https://static.vecteezy.com/system/resources/previews/003/823/542/original/spices-for-use-as-cooking-ingredients-on-a-wooden-background-with-fresh-vegetables-healthy-food-herbs-organic-vegetables-on-the-table-raw-materials-of-cooking-preparation-tom-yum-free-photo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw; /* Use viewport units for width */
+    height: 100vh;
+    margin: 0;
+    padding: 0; /* Remove padding */
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  
+/* Navbar width */
+
+.navbar {
+  width: 100% !important;
+}
+.col {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+/* For card carousel in bootstrap */
+
+.cards-wrapper{
+    display: flex;
+}
+
+.img-border {
+  border: 20px solid white;
+  border-radius: 5px;
+}
+
+ /*, .carousel-indicators */
+
+.carousel-indicators{
+    margin-bottom: 45% !important;
+}
+
+.carasoul-inner{
+    padding: 1em;
+
+}
+
+.carousel-control-prev, .carousel-control-next{
+    background-color: #e1e1e1;
+    border-radius: 50%;
+    height: 60%;
+}
+
+.carousel-control-prev-icon {
+  margin-right: 75% !important;
+}
+ 
+.carousel-control-next-icon {
+  margin-left: 75% !important;
+}
+
+.carousel-control-next span,
+.carousel-control-prev span{
+    width: 2rem;
+    height: 1.5rem;
+}
+
+/*, .images in carousel*/
+
+.image-wrapper{
+    width:  100%;
+    height: 100%;
+}
+ 
+img{
+    margin-left: 0px;
+    max-width: 100%;
+    max-height: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.carousel-container{
+    width: 100%;
+    padding: 10px;
+    height: 50%;
+}
+ 
+.main-content{
+    position: absolute;
+    height: 100%;
+    transition: all 0.5s ease;
+    background: #f8faff;
+    min-height: 100vh;
+    z-index: -1;
+}
+
+/* For card carousel text*/
+
+.card-title, .card-text {
+  margin-bottom: 20%;
+}
+
+.btn-carousel {
+  margin-bottom: 5% !important;
+}
+
+/*, .Login containers */
+
+ .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .col-4 {
+    margin: auto;
+    margin-top: 4% !important;
+    padding: 0% !important;
+  }
+  
+  .vh-94 {
+    height: 94vh;
+  }
+  
+  .vh-60 {
+    height: 60vh;
+  }
+  
+/* Buttons */
+
+  .btn-login {
+    margin-top: 1%;
+    width: 25%;
+    background-color: #198754 !important;   
+    margin-left: 5%;
+  }
+  
+  .btn-primary {
+    background-color: #198754 !important; 
+    border-color: #198754 !important;
+  }
+  
+  .btn-login:hover, .btn-primary:hover {
+    background-color: #0f4b2feb !important;
+    border-color: #0f4b2feb !important;
+  }
+  
+/* Objects inside Log in card*/
+
+  .password-text {
+    margin-top: 5%;
+    margin-left: 5%;
+  }
+  
+  .username-text {
+    margin-top: 5%;
+    margin-left: 5%;
+  }
+
+  .username-form {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+  }
+  
+  .navbar-search {
+    width: 250px !important;
+  }
+  
+  .password-form {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+  }
+  
+  .login-container {
+    height: 29%;
+  }
+  
+  .form-check {
+    margin-top: 5%;
+    margin-left: 5%;
+  } 
+
+  .form-check-label {
+    margin-left: 2%;
+  }
+
+  .card {
+    height: 600px !important;
+  }
+  
+  .card-login {
+    position: relative;
+    border-radius: 15px;
+  }
+  
+/* For grey part*/
+
+  .custom-card-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background-color: rgb(232, 232, 232);
+    padding-top: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .forgotpw-text {
+    margin-top: 20px;
+  }
+
+  .footer-text {
+    margin-left: 10%;
+    margin-top: 15px;
+  }
+  
+  .column-content {
+    margin-bottom: 20px; /* Adjust the desired amount of spacing */
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 70px;
+  }
+  
