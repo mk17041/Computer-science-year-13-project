@@ -34,50 +34,40 @@ def insert_user(username, password):
     values = (username, hashed_password)
     mycursor.execute(query, values)
 
-    # Commit the changes to database
+    # Commit the changes to the database
     db.commit()
 
     # Close the cursor and database connection
     mycursor.close()
     db.close()
 
-    # Database setup
+# Database setup
 db = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            passwd="root1234",
-            database="userdata"
-        )
+    host="localhost",
+    user="root",
+    passwd="root1234",
+    database="userdata"
+)
 
 @app.route("/login", methods=["POST", "GET"])
 def login():
-    # If user submits form 
     if request.method == "POST":
-
-        # Creating varibles from form data from html
         username = request.form["username"]
         password = request.form["password"]
 
-        # mycursor = open data base
         mycursor = db.cursor(buffered=True, dictionary=True)
-
-        # Searches in users where username/password is = to what user inputted
         mycursor.execute("SELECT * FROM users WHERE username = %s", (username,))
         user = mycursor.fetchone()
 
-        # If true transfers to menu
         if user and bcrypt.checkpw(password.encode("utf-8"), user["password_hash"].encode("utf-8")):
-            session["loggedin"] = TRUE
+            session["loggedin"] = True
             session["username"] = user["username"]
             return redirect("/home")
-        
-        # Else outputs 'wrong username or password'
         else:
             error = 'Wrong username or password'
             return render_template("login.html", error=error)
     else:
         return render_template("login.html")
-    
 
 @app.route("/signup", methods=["POST", "GET"])
 def signup():
@@ -90,7 +80,6 @@ def signup():
             error = "Passwords do not match"
             return render_template("signup.html", error=error)
 
-        # Check if the input is a valid email address
         is_valid_email = re.match(r"[^@]+@[^@]+\.[^@]+", username)
 
         if is_valid_email:
@@ -104,7 +93,6 @@ def signup():
             error = "Invalid email address"
             return render_template("signup.html", error=error)
 
-        # Insert the user into the database with hashed password
         mycursor = db.cursor()
         query = "INSERT INTO users (username, password_hash) VALUES (%s, %s)"
         values = (username, hash_password(password))
@@ -114,12 +102,20 @@ def signup():
         return redirect("/login")
     else:
         return render_template("signup.html")
-    
-    
 
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    if "loggedin" in session:
+        username = session["username"]
+        return render_template("home.html", username=username)
+    else:
+        return redirect("/login")
+
+@app.route("/logout")
+def logout():
+    session.pop("loggedin", None)
+    session.pop("username", None)
+    return redirect("/login")
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
