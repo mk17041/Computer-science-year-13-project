@@ -117,5 +117,13 @@ def logout():
     session.pop("username", None)
     return redirect("/login")
 
+@app.route("/edit")
+def edit():
+    return render_template("edit.html")
+
+@app.route("/Rcreate")
+def create():
+    return render_template("create.html")
+
 if __name__ == '__main__':
     app.run(debug=True, port=8000)

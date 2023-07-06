@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Tracker</title>
+  <link rel="stylesheet" type="text/css" href="../static/create.css">
+  <style>
+    .draggable-card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+<body>
+  <form method="POST" action="/save-recipe">
+    <div class="container-fluid vh-100">
+      <!-- Row one -->
+      <div class="row">
+        <!-- HTML code for the navbar -->
+        <div class="col">
+          <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Food Tracker</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Recipes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Food Diary</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="login">Log Out</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2 navbar-search" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <!-- Row two -->
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <div class="card-login">
+                <div class="login-container">
+                  <div class="card-body card">
+                    <div class="recipe-input">
+                      <h2 class="recipe-input__title">Enter Your Eaten Recipes/Food</h2>
+                      <form class="recipe-form">
+                        <div class="form-group">
+                          <label for="recipe-name">Recipe/Food Name</label>
+                          <input type="text" class="form-control" id="recipe-name" placeholder="Enter the name of the recipe/food">
+                       </div>
+                        <div class="form-group">
+                          <label for="instructions">Instructions</label>
+                          <textarea class="form-control" id="instructions" placeholder="Enter the instructions"></textarea>
+                        </div>
+                        <div class="form-group">
+                          <label for="date">Date</label>
+                          <input type="date" class="form-control" id="date">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Recipe</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col draggable-card">
+              <div class="card-login">
+                <div class="login-container">
+                  <div class="card-body card">
+                    <div class="recipe-input">
+                      <h2 class="recipe-input__title">Select Food</h2>
+                      <form class="recipe-form">
+                        <div class="form-group">
+                          <label for="food-select">Food</label>
+                          <select class="form-select" id="food-select" searchable="Search here...">
+                            <option value="">Select food</option>
+                            <option value="food1">Food 1</option>
+                            <option value="food2">Food 2</option>
+                            <option value="food3">Food 3</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="selected-food">Selected Food</label>
+                          <textarea class="form-control" id="selected-food" readonly></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Food</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        // Enable dragging for the draggable card
+        const card = document.querySelector('.draggable-card');
+        let isDragging = false;
+        let originalX = 0;
+        let originalY = 0;
+      
+        card.addEventListener('mousedown', (e) => {
+          isDragging = true;
+          originalX = e.clientX;
+          originalY = e.clientY;
+        });
+      
+        document.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+      
+          const deltaX = e.clientX - originalX;
+          const deltaY = e.clientY - originalY;
+      
+          card.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+        });
+      
+        document.addEventListener('mouseup', () => {
+          isDragging = false;
+        });
+      </script>
+      
