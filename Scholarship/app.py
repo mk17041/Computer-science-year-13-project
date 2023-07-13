@@ -62,7 +62,7 @@ def login():
         if user and bcrypt.checkpw(password.encode("utf-8"), user["password_hash"].encode("utf-8")):
             session["loggedin"] = True
             session["username"] = user["username"]
-            return redirect("/home")
+            return redirect("/landing")
         else:
             error = 'Wrong username or password'
             return render_template("login.html", error=error)
@@ -103,13 +103,21 @@ def signup():
     else:
         return render_template("signup.html")
 
-@app.route("/home")
+@app.route("/landing")
 def home():
     if "loggedin" in session:
         username = session["username"]
-        return render_template("home.html", username=username)
+
+        # Retrieve the user's recipes from the database
+        mycursor = db.cursor()
+        mycursor.execute("SELECT * FROM users WHERE username = %s", (username,))
+        recipes = mycursor.fetchall()
+        mycursor.close()
+
+        return render_template("landing.html", username=username, recipes=recipes)
     else:
-        return redirect("/login")
+        return render_template("login.html")
+
 
 @app.route("/logout")
 def logout():
@@ -117,13 +125,90 @@ def logout():
     session.pop("username", None)
     return redirect("/login")
 
+
+
+@app.route("/recipes")
+def recipes():
+    if "loggedin" in session:
+        username = session["username"]
+
+        # Retrieve the user's recipes from the database
+        mycursor = db.cursor()
+        mycursor.execute("""
+            SELECT recipes.recipe_name, recipes.date, recipes.instructions
+            FROM users
+            JOIN recipes ON users.personID = recipes.user_id
+            WHERE users.username = %s
+        """, (username,))
+        recipes = mycursor.fetchall()
+        mycursor.close()
+
+        return render_template("recipes.html", recipes=recipes)
+    else:
+        return redirect("/login")
+
+
+
 @app.route("/edit")
 def edit():
     return render_template("edit.html")
 
-@app.route("/Rcreate")
+@app.route("/Rcreate", methods=["POST", "GET"])
 def create():
-    return render_template("create.html")
+    if "loggedin" in session:
+        username = session["username"]
+
+        # Retrieve the list of ingredients from the database
+        mycursor = db.cursor()
+        mycursor.execute("SELECT Short_Food_Name FROM mytable")
+        ingredients = mycursor.fetchall()
+        mycursor.close()
+
+        # Pass the ingredients to the template
+        return render_template("create.html", ingredients=ingredients)
+    else:
+        return redirect("/login")
+
+@app.route("/saverecipe", methods=["POST", "GET"])
+def save_recipe():
+    if request.method == "POST":
+        recipe_name = request.form["recipe-name"]
+        date = request.form["date"]
+        instructions = request.form["instructions"]
+        selected_food = request.form.getlist("selected_food")
+        
+        # Retrieve the user's personID from the database
+        username = session["username"]
+        mycursor = db.cursor(buffered=True, dictionary=True)
+        mycursor.execute("SELECT personID FROM users WHERE username = %s", (username,))
+        user = mycursor.fetchone()
+        user_id = user["personID"]
+        mycursor.close()
+
+        # Insert the recipe into the recipes table
+        mycursor = db.cursor()
+        query = "INSERT INTO recipes (user_id, recipe_name, date, instructions) VALUES (%s, %s, %s, %s)"
+        values = (user_id, recipe_name, date, instructions)
+        mycursor.execute(query, values)
+        recipe_id = mycursor.lastrowid
+
+        # Insert the ingredients into the ingredients table
+        for ingredient in selected_food:
+            query = "INSERT INTO ingredients (recipe_id, ingredient_name) VALUES (%s, %s)"
+            values = (recipe_id, ingredient)
+            mycursor.execute(query, values)
+
+        # Commit the changes to the database
+        db.commit()
+
+        # Close the cursor
+        mycursor.close()
+
+    return redirect("/landing")
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
