@@ -1,169 +1,167 @@
 /* Body css including bg */
 body {
-    background-image: url("https://static.vecteezy.com/system/resources/previews/003/823/542/original/spices-for-use-as-cooking-ingredients-on-a-wooden-background-with-fresh-vegetables-healthy-food-herbs-organic-vegetables-on-the-table-raw-materials-of-cooking-preparation-tom-yum-free-photo.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 100vw; /* Use viewport units for width */
-    height: 100vh;
-    margin: 0;
-    padding: 0; /* Remove padding */
-    overflow-x: hidden;
-    overflow-y: hidden;
-  }
-  
-  /* Navbar width */
-  .navbar {
-    width: 100% !important;
-  }
-  
-  .col {
-    padding-right: 0 !important;
-    padding-left: 0 !important;
-  }
-  
-  .navbar-search {
-    width: 250px !important;
-  }
-  
-  /* Adjustments to cards */
-  .col-4 {
-    margin-top: 0% !important;
-    padding: 0% !important;
-  }
-  
-  .row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .vh-94 {
-    height: 94vh;
-  }
-  
-  .vh-60 {
-    height: 60vh;
-  }
-  
-  /* Buttons */
-  .btn-login {
-    margin-top: 1%;
-    width: 100% !important;
-    background-color: #198754 !important;
-    margin-left: 5%;
-  }
-  
-  .btn-primary {
-    background-color: #198754 !important;
-    border-color: #198754 !important;
-  }
-  
-  .btn-login:hover,
-  .btn-primary:hover {
-    background-color: #0f4b2feb !important;
-    border-color: #0f4b2feb !important;
-  }
-  
-  /* Empty card */
-  .login-container {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .card {
-    height: 650px !important;
-    width: 1350px;
-    position: relative;
-  }
-  
-  .horizontal-line {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #000;
-  }
-  
-  .vertical-line {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 100%;
-    background-color: #000;
-  }
-  
-  .card-login {
-    border-radius: 15px;
-    margin: 0 auto;
-    max-width: 600px;
-    width: 90%;
-    margin-top: 6%;
-  }
-  
-  .recipes {
-    padding-right: 0px !important;
-  }
-  
-  .ingredients {
-    padding-left: 0px !important;
-  }
-  
-  .recipe-input__title,
-  .recipe-form .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .recipe-form .form-control,
-  .recipe-form .btn-primary {
-    margin-bottom: 10px;
-  }
-  
-  textarea#instructions {
-    height: 334px; /* Initial height */
-    resize: vertical; /* Allow vertical resizing */
-    max-height: 334px;
-  }
+  background-image: url("https://static.vecteezy.com/system/resources/previews/003/823/542/original/spices-for-use-as-cooking-ingredients-on-a-wooden-background-with-fresh-vegetables-healthy-food-herbs-organic-vegetables-on-the-table-raw-materials-of-cooking-preparation-tom-yum-free-photo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw; /* Use viewport units for width */
+  height: 100vh;
+  margin: 0;
+  padding: 0; /* Remove padding */
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
 
-  textarea#selected-food {
-    height: 365px; /* Initial height */
-    resize: vertical; /* Allow vertical resizing */
-    max-height: 365px;
-  }
-  
+/* Navbar width */
+.navbar {
+  width: 100% !important;
+}
 
-    .recipe-input {
-    flex-grow: 1;
-    position: relative;
-    }
+.col {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
 
-    .textarea-container {
-    top: 0;
-    bottom: 50px; /* Adjust the height of the button */
-    left: 0;
-    right: 0;
-    }
+.navbar-search {
+  width: 250px !important;
+}
 
-    .textarea-container textarea {
-    height: 100%;
-    max-height: 300px; /* Set the maximum height for the textarea container */
-    }
+/* Adjustments to cards */
+.col-4 {
+  margin-top: 0% !important;
+  padding: 0% !important;
+}
 
-    .btn-recipe {
-    position: absolute !important;
-    bottom: 0 !important;
-    width: 100% !important;
-    }
-   
-    .recipe-form .form-group label {
-        margin-bottom: 10px;
-      }
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .food-select {
-        margin-bottom: 10px;
-    }
+.vh-94 {
+  height: 94vh;
+}
 
+.vh-60 {
+  height: 60vh;
+}
+
+/* Buttons */
+.btn-login {
+  margin-top: 1%;
+  width: 100% !important;
+  background-color: #198754 !important;
+  margin-left: 5%;
+}
+
+.btn-primary {
+  background-color: #198754 !important;
+  border-color: #198754 !important;
+}
+
+.btn-login:hover,
+.btn-primary:hover {
+  background-color: #0f4b2feb !important;
+  border-color: #0f4b2feb !important;
+}
+
+/* Empty card */
+.login-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  height: 650px !important;
+  width: 1350px;
+  position: relative;
+}
+
+.horizontal-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+}
+
+.vertical-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background-color: #000;
+}
+
+.card-login {
+  border-radius: 15px;
+  margin: 0 auto;
+  max-width: 600px;
+  width: 90%;
+  margin-top: 6%;
+}
+
+.recipes {
+  padding-right: 0px !important;
+}
+
+.ingredients {
+  padding-left: 0px !important;
+}
+
+.recipe-input__title,
+.recipe-form .form-group {
+  margin-bottom: 20px;
+}
+
+.recipe-form .form-control,
+.recipe-form .btn-primary {
+  margin-bottom: 10px;
+}
+
+textarea#instructions {
+  height: 334px; /* Initial height */
+  resize: vertical; /* Allow vertical resizing */
+  max-height: 334px;
+}
+
+textarea#selected-food {
+  height: 365px; /* Initial height */
+  resize: vertical; /* Allow vertical resizing */
+  max-height: 365px;
+}
+
+.recipe-input {
+  flex-grow: 1;
+  position: relative;
+}
+
+.textarea-container {
+  top: 0;
+  bottom: 50px; /* Adjust the height of the button */
+  left: 0;
+  right: 0;
+}
+
+.textarea-container textarea {
+  height: 100%;
+  max-height: 300px; /* Set the maximum height for the textarea container */
+}
+
+.btn-recipe {
+  position: absolute !important;
+  bottom: 0 !important;
+  width: 100% !important;
+}
+
+.recipe-form .form-group label {
+  margin-bottom: 10px;
+}
+
+.food-select {
+  margin-bottom: 10px;
+}

@@ -1,110 +1,137 @@
 /* Body css including bg */
 body {
-    background-image: url("https://static.vecteezy.com/system/resources/previews/003/823/542/original/spices-for-use-as-cooking-ingredients-on-a-wooden-background-with-fresh-vegetables-healthy-food-herbs-organic-vegetables-on-the-table-raw-materials-of-cooking-preparation-tom-yum-free-photo.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 100vw; /* Use viewport units for width */
-    height: 100vh;
-    margin: 0;
-    padding: 0; /* Remove padding */
-    overflow-x: hidden;
-    overflow-y: hidden;
-  }
-  
-  /* Navbar width */
-  .navbar {
-    width: 100% !important;
-  }
-  
-  .col {
-    padding-right: 0 !important;
-    padding-left: 0 !important;
-  }
-  
-  .navbar-search {
-    width: 250px !important;
-  }
-  
-  /* Adjustments to cards */
-  .col-4 {
-    margin-top: 0% !important;
-    padding: 0% !important;
-  }
-  
-  .row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .vh-94 {
-    height: 94vh;
-  }
-  
-  .vh-60 {
-    height: 60vh;
-  }
-  
-  /* Buttons */
-  .btn-login {
-    margin-top: 1%;
-    width: 25%;
-    background-color: #198754 !important;
-    margin-left: 5%;
-  }
-  
-  .btn-primary {
-    background-color: #198754 !important;
-    border-color: #198754 !important;
-  }
-  
-  .btn-login:hover,
-  .btn-primary:hover {
-    background-color: #0f4b2feb !important;
-    border-color: #0f4b2feb !important;
-  }
-  
-  /* Empty card */
+  background-image: url("https://static.vecteezy.com/system/resources/previews/003/823/542/original/spices-for-use-as-cooking-ingredients-on-a-wooden-background-with-fresh-vegetables-healthy-food-herbs-organic-vegetables-on-the-table-raw-materials-of-cooking-preparation-tom-yum-free-photo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw; /* Use viewport units for width */
+  height: 100vh;
+  margin: 0;
+  padding: 0; /* Remove padding */
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* Navbar width */
+.navbar {
+  width: 100% !important;
+}
+
+.col {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.navbar-search {
+  width: 250px !important;
+}
+
+/* Adjustments to cards */
+.col-4 {
+  margin-top: 0% !important;
+  padding: 0% !important;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vh-94 {
+  height: 94vh;
+}
+
+.vh-60 {
+  height: 60vh;
+}
+
+/* Buttons */
+.btn-login {
+  margin-top: 1%;
+  width: 25%;
+  background-color: #198754 !important;
+  margin-left: 5%;
+}
+
+.btn-primary {
+  background-color: #198754 !important;
+  border-color: #198754 !important;
+}
+
+.btn-login:hover,
+.btn-primary:hover {
+  background-color: #0f4b2feb !important;
+  border-color: #0f4b2feb !important;
+}
+
+/* Empty card */
 .login-container {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .card {
-    height: 650px !important;
-    width: 1350px;
-    position: relative;
-  }
-  
-  .horizontal-line {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #000;
-  }
-  
-  .vertical-line {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 100%;
-    background-color: #000;
-  }
-  
-  .card-login {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 15px;
-    margin: 0 auto;
-    max-width: 1500px;
-    width: 90%;
-  }
-  
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  height: 650px !important;
+  width: 1350px;
+  position: relative;
+}
+
+.horizontal-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+}
+
+.vertical-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background-color: #000;
+}
+
+.card-login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  margin: 0 auto;
+  max-width: 1500px;
+  width: 90%;
+}
+
+/* For boxes*/
+.recipe-box {
+  overflow-y: auto;
+}
+
+.recipe-card {
+  cursor: pointer;
+}
+
+.recipe-card:hover {
+  background-color: #f8f9fa;
+}
+
+.recipe-title {
+  margin-top: 0;
+}
+
+.recipe-description {
+  margin-bottom: 0;
+}
+
+.recipe-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+

@@ -9,11 +9,15 @@ app = Flask(__name__)
 app.secret_key = 'thisisoursecretkey'
 
 # Function to hash the password
+
+
 def hash_password(password):
     hashed_password = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
     return hashed_password.decode("utf-8")
 
 # Function to insert a user with hashed password
+
+
 def insert_user(username, password):
     # Connect to MySQL
     db = mysql.connector.connect(
@@ -41,6 +45,7 @@ def insert_user(username, password):
     mycursor.close()
     db.close()
 
+
 # Database setup
 db = mysql.connector.connect(
     host="localhost",
@@ -49,6 +54,7 @@ db = mysql.connector.connect(
     database="userdata"
 )
 
+
 @app.route("/login", methods=["POST", "GET"])
 def login():
     if request.method == "POST":
@@ -56,7 +62,8 @@ def login():
         password = request.form["password"]
 
         mycursor = db.cursor(buffered=True, dictionary=True)
-        mycursor.execute("SELECT * FROM users WHERE username = %s", (username,))
+        mycursor.execute(
+            "SELECT * FROM users WHERE username = %s", (username,))
         user = mycursor.fetchone()
 
         if user and bcrypt.checkpw(password.encode("utf-8"), user["password_hash"].encode("utf-8")):
@@ -68,6 +75,7 @@ def login():
             return render_template("login.html", error=error)
     else:
         return render_template("login.html")
+
 
 @app.route("/signup", methods=["POST", "GET"])
 def signup():
@@ -103,6 +111,7 @@ def signup():
     else:
         return render_template("signup.html")
 
+
 @app.route("/landing")
 def home():
     if "loggedin" in session:
@@ -110,7 +119,8 @@ def home():
 
         # Retrieve the user's recipes from the database
         mycursor = db.cursor()
-        mycursor.execute("SELECT * FROM users WHERE username = %s", (username,))
+        mycursor.execute(
+            "SELECT * FROM users WHERE username = %s", (username,))
         recipes = mycursor.fetchall()
         mycursor.close()
 
@@ -126,7 +136,6 @@ def logout():
     return redirect("/login")
 
 
-
 @app.route("/recipes")
 def recipes():
     if "loggedin" in session:
@@ -135,23 +144,24 @@ def recipes():
         # Retrieve the user's recipes from the database
         mycursor = db.cursor()
         mycursor.execute("""
-            SELECT recipes.recipe_name, recipes.date, recipes.instructions
+            SELECT recipes.id, recipes.user_id, recipes.recipe_name, recipes.instructions, recipes.date
             FROM users
             JOIN recipes ON users.personID = recipes.user_id
             WHERE users.username = %s
         """, (username,))
         recipes = mycursor.fetchall()
         mycursor.close()
+        print(recipes)
 
         return render_template("recipes.html", recipes=recipes)
     else:
         return redirect("/login")
 
 
-
 @app.route("/edit")
 def edit():
     return render_template("edit.html")
+
 
 @app.route("/Rcreate", methods=["POST", "GET"])
 def create():
@@ -169,6 +179,7 @@ def create():
     else:
         return redirect("/login")
 
+
 @app.route("/saverecipe", methods=["POST", "GET"])
 def save_recipe():
     if request.method == "POST":
@@ -176,11 +187,12 @@ def save_recipe():
         date = request.form["date"]
         instructions = request.form["instructions"]
         selected_food = request.form.getlist("selected_food")
-        
+
         # Retrieve the user's personID from the database
         username = session["username"]
         mycursor = db.cursor(buffered=True, dictionary=True)
-        mycursor.execute("SELECT personID FROM users WHERE username = %s", (username,))
+        mycursor.execute(
+            "SELECT personID FROM users WHERE username = %s", (username,))
         user = mycursor.fetchone()
         user_id = user["personID"]
         mycursor.close()
@@ -206,6 +218,49 @@ def save_recipe():
 
     return redirect("/landing")
 
+@app.route("/recipespage", methods=["POST", "GET"])
+def recipes_page():
+    if "loggedin" in session:
+        username = session["username"]
+
+        # Retrieve the recipe details from the database
+        mycursor = db.cursor()
+        mycursor.execute("""
+            SELECT recipes.recipe_name, recipes.date, recipes.instructions, ingredients.ingredient_name
+            FROM users
+            JOIN recipes ON users.personID = recipes.user_id
+            JOIN ingredients ON recipes.id = ingredients.recipe_id
+            WHERE users.username = %s
+        """, (username,))
+        recipe_details = mycursor.fetchall()
+        mycursor.close()
+        print("hi")
+
+        return render_template("recipespage.html", recipe_details=recipe_details)
+    else:
+        return redirect("/login")
+
+@app.route("/recipespage/<int:id>")
+def recipe_page(id):
+    if "loggedin" in session:
+        username = session["username"]
+
+        # Retrieve the recipe details from the database
+        mycursor = db.cursor()
+        mycursor.execute("""
+            SELECT recipes.recipe_name, recipes.date, recipes.instructions, ingredients.ingredient_name
+            FROM users
+            JOIN recipes ON users.personID = recipes.user_id
+            JOIN ingredients ON recipes.id = ingredients.recipe_id
+            WHERE users.username = %s AND recipes.id = %s
+        """, (username, id))
+        recipe_details = mycursor.fetchall()
+        mycursor.close()
+
+
+        return render_template("recipespage.html", recipe_details=recipe_details)
+    else:
+        return redirect("/login")
 
 
 
